@@ -1,0 +1,19 @@
+trigger: none
+
+resources:
+  pipelines:
+    - pipeline: ciPipeline
+      source: 'CI-Build' # Nom de votre pipeline CI dans Azure DevOps
+      trigger:
+        branches:
+          include:
+            - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - script: |
+      echo "Déploiement de l'application Python en cours..."
+      # Ajoutez ici vos commandes de déploiement (ex: Azure Web App, Docker, SSH)
+    displayName: 'Déployer l application'
